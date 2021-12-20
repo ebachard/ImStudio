@@ -2,13 +2,26 @@ cmake_minimum_required(VERSION 3.10)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-SET(PROJECT_VERSION_MAJOR 1)
-SET(PROJECT_VERSION_MINOR 1)
-SET(PROJECT_VERSION_PATCH 6)
+file(STRINGS VERSION version)
+
+list(GET version 0 PROJECT_VERSION_MAJOR)
+list(GET version 1 PROJECT_VERSION_MINOR)
+list(GET version 2 PROJECT_VERSION_PATCH)
+
+SET(PROJECT_VERSION_STRING "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH}")
+add_compile_definitions(PROJECT_VERSION_STRING="${PROJECT_VERSION_STRING}")
 
 project(ImStudio C CXX)
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
+
+find_package(Git)
+if(Git_FOUND)
+    include(GetGitRevisionDescription)
+    get_git_head_revision(GIT_REFSPEC GIT_SHA1)
+    add_compile_definitions(GIT_SHA1="${GIT_SHA1}")
+endif()
+
 if (WIN32 OR APPLE)
     include(glfw)
 else()  # Linux
