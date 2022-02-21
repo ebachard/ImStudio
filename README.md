@@ -8,6 +8,8 @@
 
 Real-time GUI layout creator/editor for [Dear ImGui](https://github.com/ocornut/imgui)
 
+### [Try Online](https://raais.github.io/ImStudio)
+
 ![Screenshot with all windows](https://user-images.githubusercontent.com/64605172/140092885-4e1970d6-2518-4c42-a9a0-c14725931aea.png)
 
 ![Making a simple layout](https://user-images.githubusercontent.com/64605172/140092697-c7760d6e-6f5a-4dd0-b208-919e9647c117.gif)
@@ -27,10 +29,11 @@ Inspired by [Code-Building/ImGuiBuilder](https://github.com/Code-Building/ImGuiB
  
 ## Installation
 
-### Dependencies
+### Build Dependencies
 
  - [CMake](https://cmake.org/download)
- - [GLFW (Linux only)](https://www.glfw.org/download) \
+ - [GLFW](https://www.glfw.org/download) \
+ <sup><sub> \*Downloaded during build on Windows and MacOS </sub></sup>\
  <sub> **Debian:** sudo apt-get install libglfw3 libglfw3-dev </sub>\
  <sub> **Arch:** sudo pacman -S glfw </sub>\
  <sub> **Fedora:** sudo dnf install glfw glfw-devel </sub>
